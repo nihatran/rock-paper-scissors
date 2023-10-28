@@ -41,13 +41,59 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-// get and display player's choice
-let playerChoice = prompt("Rock, Paper, or Scissors?");
-playerChoice = playerChoice.toLowerCase();
-console.log("Player chose: " + playerChoice);
+function game() {
 
-// get and display computer's choice
-let computerChoice = getComputerChoice();
-console.log("Computer chose: " + computerChoice);
+    let playerScore = 0;
+    let computerScore = 0;
+
+    // play 5 rounds
+    for (let i = 0; i < 5; i++) {
+        // get and display player's choice
+        let playerChoice = prompt("Rock, Paper, or Scissors?");
+        playerChoice = playerChoice.toLowerCase();
+        console.log("Player chose: " + playerChoice);
+
+        // get and display computer's choice
+        let computerChoice = getComputerChoice();
+        console.log("Computer chose: " + computerChoice);
+
+        // display results 
+        let results = playRound(playerChoice, computerChoice);
+        console.log(results);
+
+        // keep and display score
+        if (results.includes("tie")) {
+            playerScore += 1;
+            computerScore += 1;
+        } else if (results.includes("You Win!")) {
+            playerScore += 1;
+        }
+        else if (results.includes("You Lose!")) {
+            computerScore += 1;
+        }
+
+        console.log("Player score is: " + playerScore);
+        console.log("Computer score is: " + computerScore);
+
+        console.log("*********************")
+    }
+    
+    // determine and display final winner
+    console.log("Player final score: " + playerScore);
+    console.log("Computer final score: " + computerScore);
+
+    if (playerScore > computerScore) {
+        console.log("You are the final winner!");
+    } else if (computerScore > playerScore) {
+        console.log("Computer is the final winner!");
+    } else
+        console.log("It's a tie!");
+}
+
+game();
+
+
+
+
 
 
