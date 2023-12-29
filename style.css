@@ -84,3 +84,7 @@ button {
     border: none;
     border-radius: 15px;
 }
+
+button:hover {
+    background-color: rgb(61, 77, 99);
+}
